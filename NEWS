@@ -1,0 +1,912 @@
+2012-10-21 meld 1.6.1
+=====================
+
+  Fixes:
+
+    * Fix traceback from invalid tree cursor paths (Kai Willadsen) (closes
+      rhbz#832969 and rhbz#837133)
+    * Fix traceback when popping up right-click menus in empty tree sections
+      (Kai Willadsen) (closes rhbz#843879)
+    * Fix Bazaar comparisons including exec bit changes (Kai Willadsen) (closes
+      bgo#682852)
+    * Avoid spurious listings in Bazaar with shelved items (Per Ångström)
+    * Fix copying symlinks in directories (Rainer Suhm) (closes rhbz#836606)
+    * Support newer Fossil VC (Jan Danielsson) (closes bgo#683969)
+    * Fix compatibility with Python 2.5 (Gianni Trovisi)
+
+
+2012-4-28 meld 1.6.0
+====================
+
+  Fixes:
+
+    * Fix cursor location handling when our tree models change (Kai Willadsen)
+
+  Translation updates:
+
+    * Bruno Brouard (fr)
+    * Daniel Mustieles (es)
+    * Daniel Șerbănescu (ro)
+    * Fran Diéguez (gl)
+    * Marek Černocký (cs)
+    * Matej Urbančič (sl)
+    * Piotr Drąg (pl)
+
+
+2012-4-3 meld 1.5.4
+====================
+
+  Fixes:
+
+    * Slightly faster diff calculation (Piotr Piastucki)
+    * Avoid too-tall commit dialogues (Nguyễn Hồng Quân)
+    * Minor bug fixes and performance improvments (Kai Willadsen)
+
+  Translation updates:
+
+    * Alexander Shopov (bg)
+    * Fran Diéguez (gl)
+    * Kjartan Maraas (nb)
+    * Kristjan SCHMIDT (eo)
+    * Nguyễn Thái Ngọc Duy (vi)
+    * Toshiharu Kudoh (ja)
+    * Trương Ứng Minh (vi)
+    * Мирослав Николић (sr) (sr@latin)
+
+
+2012-1-27 meld 1.5.3
+====================
+
+  New features:
+
+    * Add simple animations for chunk actions to make it easier to follow the
+      result of insertion and deletion actions (Kai Willadsen)
+    * Show the currently displayed page area in the side bars (Kai Willadsen)
+
+  Fixes:
+
+    * Don't show links between chunks where one of the chunks is completely
+      off-screen, reducing visual clutter (Kai Willadsen)
+    * Syntax highlighting will now assume that all files in a comparison are
+      of the same type if we can't determine otherwise (Kai Willadsen)
+    * Some fixes to colour usage and legibility for dark themes, with more
+      theme fixes coming soon (Kai Willadsen)
+    * Remember active filters across sessions in directory and VC comparions
+      (Kai Willadsen)
+    * Guess which version control system a user is most likely to want to see,
+      in the event of multiple VCs in a single working copy (Kai Willadsen)
+    * Work with Subversion 1.7 (Kai Willadsen)
+    * Many sundry bug fixes (Aaron Schrab, Julian Taylor, Kai Willadsen)
+
+  Translation updates:
+
+    * Bruno Brouard (fr)
+    * Christian Kirbach (de)
+    * Daniel Mustieles (es)
+    * Fran Dieguez (gl)
+    * Gabriel Speckhahn (pt_BR)
+    * Jiro Matsuzawa (ja)
+    * Jorge González (es)
+    * Marcin Floryan (pl)
+    * Marek Černocký (cs)
+    * Mario Blättermann (de)
+    * Matej Urbančič (sl)
+    * Petr Kovar (cs)
+    * Piotr Drąg (pl)
+    * Takeshi AIHANA (ja)
+    * Yuri Myasoedov (ru)
+
+
+2011-7-24 meld 1.5.2
+=====================
+
+  New features:
+
+    * Add a new menu item and shortcut for switching between panes in
+      file comparisons (Kai Willadsen)
+    * Support type-ahead search in version control views (Oliver Gerlich)
+
+  Fixes:
+
+    * Non-editable files are now handled properly when doing sensitivity
+      setting of change actions, and actions on the central change bar are
+      presented accordingly (Piotr Piastucki, Kai Willadsen)
+    * Fix incorrect comparison display in files containing FF or NEL linebreak
+      literals (Kai Willadsen)
+    * Updates to the Fossil version control support (Jan Danielsson)
+    * Use faster validity check for Bazaar repositories (Kai Willadsen)
+    * Many minor updates and other fixes (Tomasz Bury, Alan Horkan,
+      Julian Taylor, Kai Willadsen)
+
+  Translation updates:
+    * Bruno Brouard (fr)
+    * Daniel Mustieles (es)
+    * Daniel Nylander (sv)
+    * Jorge González (es)
+    * Mario Blättermann (de)
+    * Matej Urbančič (sl)
+    * Мирослав Николић (sr, sr@latin)
+
+
+2011-3-20 meld 1.5.1
+=====================
+
+  New features:
+
+    * Add menu items and keyboard shortcuts for version control and directory
+      comparison actions (Kai Willadsen)
+    * Add support for the Fossil SCM (Jan Danielsson)
+    * Add a menu for switching between tabs (Kai Willadsen)
+    * Add a menu item to unlock scrolling (Kai Willadsen)
+
+  Code changes and fixes:
+
+    * Improve filter handling with inline error reporting in the preference
+      pane, and correct refreshing of file and directory comparisons on filter
+      changes (Kai Willadsen)
+    * Make line number display work with GtkSourceView 2.10+ (Piotr Piastucki)
+    * Support external diff tools in subversion (Cedric Le Dillau)
+    * Support CVSNT as a CVS alternative (Kai Willadsen)
+    * Performance fixes for subversion and bazaar (Tristan Hill, Kirill Müller)
+    * Correctly update a modified file's status in git and svn version control
+      views (Peter Tyser)
+    * Make temporary files unwritable to avoid unintentionally editing them
+      (Peter Tyser)
+    * Clean up diff results for cleaner comparisons (Piotr Piastucki)
+    * Improve symlink and binary handling, and error cases for directory
+      comparisons (Kai Willadsen)
+    * Improve copy semantics for directories and symlinks (Kai Willadsen)
+    * Show case insensitivity and file encoding errors less intrusively (Kai
+      Willadsen)
+    * Sundry bug fixes (Kai Willadsen, Piotr Piastucki)
+
+  Translation updates:
+    * Bruno Brouard (fr)
+    * Claude Paroz (fr)
+    * Daniel Mustieles (es)
+    * Joe Hansen (da)
+    * Mario Blättermann (de)
+    * Matej Urbančič (sl)
+    * Miroslav Nikolić (sr)
+    * Petr Kovar (cs)
+    * Takeshi AIHANA (ja)
+
+
+2010-12-27 meld 1.5.0
+=====================
+
+  New features:
+
+    * Use MyersSequenceMatcher by default (matcher from Piotr Piastucki)
+    * Add a "Show whitespace" preference (Jon Dufresne)
+    * Add "Copy change above/below left/right" actions (Kai Willadsen)
+    * Add Alt+Up/Down as shortcuts for previous/next change (Kai Willadsen)
+    * Add previous/next conflict actions (Kai Willadsen)
+    * Patch creation can now create reverse patches, and can choose between
+      panes in a three-way comparison (Kai Willadsen)
+    * Add a --output option for specifying where to save a merge result
+      (Kai Willadsen)
+
+  Code changes and fixes:
+
+    * Require Python 2.5, Gtk+/PyGtk 2.14, PyGtkSourceView 2.4 (optional)
+    * Port to gtk.Builder and gtk.IconTheme (Kai Willadsen)
+    * Remove gnome-vfs usage (Kai Willadsen)
+    * Portability fixes (Thomas Klausner)
+    * Build fixes (Helmut Jarausch)
+    * Add a man page (Peter Tyser)
+    * Put preferences fallback in XDG-compliant location (Kai Willadsen)
+    * Fix Undo/Redo with unicode text (Kai Willadsen)
+    * Handle unicode linebreaks (Kai Willadsen)
+
+  Translation updates:
+
+    * Bruno Brouard (fr)
+    * Carles Ferrando (ca@valencia)
+    * Claude Paroz (fr)
+    * Gabor Kelemen (hu)
+    * Joe Hansen (da)
+    * Jorge González (es)
+    * Mario Blättermann (de)
+    * Matej Urbančič (sl)
+    * Petr Kovar (cs)
+
+
+2010-09-27 meld-1.4.0
+=====================
+
+    * Fix committing with RCS (Iuri Diniz)
+
+    * Fix compatibility with old PyGObject (Kai Willadsen)
+
+    * Translation updates:
+      hu (Gabor Kelemen)
+
+
+2010-09-09 meld-1.3.3
+=====================
+
+    * Highlight currently focused change (Kai Willadsen)
+
+    * Add ability to check if version control repos are valid (Peter Tyser)
+
+    * Support multiple-file undo/redo operations after save (Kai Willadsen)
+
+    * Performance improvements, bug fixes and sundry contributions
+      (Piotr Piastucki, Alexander Smishlajev, Robert Wahler, Kai Willadsen)
+
+    * Translation updates:
+      de (Mario Blättermann), es (Jorge González), fr (Bruno Brouard),
+      ja (Takeshi AIHANA), sl (Matej Urbančič), zh_CN (Tao Wang)
+
+
+2010-06-20 meld-1.3.2
+=====================
+
+    * Add keyboard merging support (Kai Willadsen)
+
+    * Add support for bulk change merging (Piotr Piastucki)
+
+    * Add auto-merge with ancestor mode; please note that this can currently
+      only be started from the commandline (Piotr Piastucki)
+
+    * Updates to VC support, including lots of git fixes (Peter Tyser and
+      others)
+
+    * UI cleanups, including a cleaner Preferences dialog, and message areas
+      for most error reporting (Kai Willadsen)
+
+    * Plenty of miscellaneous bug fixes (Didier Roche, Geoffrey Irving,
+      Kai Willadsen, Martyn Thomas, Peter Tyser, Piotr Piastucki)
+
+    * Translation updates:
+      cs (Petr Kovar), de (Holger Wansing, Mario Blättermann), es (Jorge
+      González), fr (Bruno Brouard, Claude Paroz), gl (Enrique Estévez, Fran
+      Diéguez), hu (Gabor Kelemen), it (Andrea Zagli), ja (Takeshi AIHANA),
+      pt_BR (Djavan Fagundes), sl (Matej Urbančič), sq (Besnik Bleta, Laurent
+      Dhima), sr@latin (Danilo Šegan), sv (Daniel Nylander), zh_CN (arccos,
+      Careone)
+
+
+2009-08-14 meld-1.3.1
+=====================
+
+	* Add svk support (Vincent Legoll)
+
+	* Add support for marking conflicts as resolved (Matthijs van de Water,
+	  Vincent Legoll)
+
+	* Warp the text cursor to the start of jumped-to diff chunks (Vincent
+	  Legoll)
+
+	* Allow toggling of toolbar and statusbar visibility, and add a fullscreen
+	  option (Michael Budde, Stephen Kennedy, Kai Willadsen)
+
+	* Improved change merging and conflict resolution (Piotr Piastucki)
+
+	* Speed up file comparisons and highlighting, significantly improving
+	  interactive editing performance (Kai Willadsen, Piotr Piastucki)
+
+	* Meld has a shiny new application icon (Josef Vybíral)
+
+2009-04-17 meld-1.3.0
+=====================
+
+	* Minimum requirements are pygobject 2.8 and python 2.4
+
+	* Find dialog replaced with find bar with replace functionality
+
+	* Remove gnome dependencies (Kai Willadsen, Vincent Legoll)
+	  Meld now runs on win32 (experimental).
+
+	* Many ui tweaks and cleanups (Kai Willadsen, Vincent Legoll)
+
+	* Support for multiple sourceview versions (Vincent Legoll)
+
+	* Updated version control support
+		* Multiple VCs in a single directory (Vincent Legoll)
+	    * Subversion 1.6.x (Vincent Legoll)
+		* Add RCS support (Oliver Gerlich, Vincent Legoll)
+		* Add Codeville support (Vincent Legoll)
+
+2008-11-23 meld-1.2.1
+=====================
+
+	* Pygtk version 2.8 now required
+
+	* Port to gtk.UIManager (Kai Willadsen)
+
+	* Handle spaces in svn paths (Neil Mayhew)
+
+	* Command-line auto-compare all option on startup (Ondrej Novy)
+
+	* Command-line can launch several comparisons (Brian Holmes)
+
+	* Several UI tweaks (better focus behavior, better defaults)
+
+2008-06-26 meld-1.2
+=======================
+
+	* Improve tab rendering (Kai Willadsen)
+
+	* Speedup folder comparison massively for large directories.
+
+	* Fix crasher i18n bug (Kai Willadsen)
+
+	* UI tweaks and cleanups (Tom Baugis, Kai Willadsen)
+
+	* Cleanup vc library redundancy (Vincent Legoll)
+
+	* Various version control fixes.
+
+
+2007-06-12 meld-1.1.5.1
+=======================
+
+	* Do not ship .svn folders in tarball
+
+2007-06-09 meld-1.1.5
+=====================
+
+	* Handle new version contol command line arguments.
+
+	* CLI option to set the tab labels. Bug 138860.
+
+	* Improve mime type detection from Tomasz Bury. Bug 156137.
+
+	* Hold shift when scrolling to scroll the panes independently.
+
+	* File & folder history now saved from Sam Jacobson.
+
+	* Several small ui improvements.
+
+2006-06-10 meld-1.1.4
+=====================
+
+	* Refresh and reload buttons.
+
+	* Better context menu behaviour for vcview.
+
+	* Allow escaping of shell patterns. (Patch from Jared Sulem)
+
+	* Stop button sensitive only when needed.
+
+	* Added ignore symlinks option for folder comparisons.
+
+	* Various vc and other minor patches.
+
+2006-01-29 meld-1.1.3
+=====================
+
+	* Arch support updates (Ali Afshar)
+
+	* Sync scroll works, even with word wrap Bug 326648
+
+	* Use shutil.copy2 so [am]time is copied.
+		Suggestion from Eric Firing
+
+	* Monotone support. Patch from Daniel Thompson.
+
+	* Handle -h,-v command line options correctly. Bug 321634
+
+2005-11-08 meld-1.1.2
+=====================
+
+	* Add bzr support. Patch from Aaron Bentley.
+
+	* Fix missing file attributes in dirdiff statusbar.
+
+	* Hide pygtk 2.6 -> 2.8 deprecation warnings.
+
+2005-10-26 meld-1.1.1
+=====================
+
+	* Now require pygtk-2.6+ and remove deprecation warnings
+	  from previous versions. Use new filechooser.
+
+	* New pluggable version control system.
+
+	* New drawing code makes filediff much prettier.
+
+	* Detect resolved cvs conflicts. Bug 308937
+
+2005-10-25 meld-1.1.0
+=====================
+
+	* Faulty release removed.
+
+2005-08-12 meld-1.0.1
+=====================
+
+	* Translation plural form fixes. Bug 309408.
+
+	* Hide deprecation warnings. Bug 310077.
+
+	* Updated translations.
+	  Takeshi AIHANA(jp.po) Miloslav Trmac(cs.po)
+	  Dongsu Jang(ko.po) Alexander Shopov(bg.po)
+	  Vincent van Adrighem(nl.po)
+
+2005-07-01 meld-1.0.0
+=====================
+
+	* Added quick patch viewer via filediff context menu
+
+	* Smarter abbreviation for tab labels.
+	
+	* Add svn directory hide rule. Bug 306093.
+
+	* Fix inline highlighting for non-ascii encodings. Bug 304988.
+
+	* Fix incorrect conflict detection. Bug 308833.
+
+	* Fix some i18n issues in the source. Thanks to
+	  Benoît DEJEAN, Danilo Segan and Christian Rose.
+
+	* Many updated translations since 0.9.6
+	  Frank Arnold(de.po) Alexey Rusakov(ru.po)
+	  Woodman Tuen(zh_TW.po) Jorge Gonzalez(es.po)
+	  Christian Rose(sv.po) Adam Weinberger(en_CA.po)
+	  Benoît DEJEAN(fr.po) Alexander Shopov(bg.po)
+
+2005-05-18 meld-0.9.6
+=====================
+
+	* Disable dirdiff hiding when tree is being filled. Bug 160211.
+
+	* Remove and disable multiline text filters. Bug 162688.
+
+	* Updated to work with libglade2.4.1
+
+	* Fix svn parse error. Bug 165079.
+
+	* Improve regex matching. Bug 172194.
+
+	* "meld <svn file>" works like cvs. Bug 169986.
+
+	* Fix filediff line crossing. Bug 171788.
+
+	* Fix "ignore blank lines" option breaks merge buttons. Bug 168010.
+
+2004-12-10 meld-0.9.5
+=====================
+
+	* New docbook based user guide
+
+	* Can use either pygtksourceview (preferred) or pysourceview
+	  Fixed minor issues related to sourceview.
+
+	* Can now compare files with different encodings
+
+	* SVN browser is not confused by unversioned directories
+
+	* SVN browser sorts by filename, not version number.
+
+	* Minor cosmetic fixes and typos in strings fixed
+
+2004-07-15 meld-0.9.4
+=====================
+
+	* Regular expression for ignore patterns in file diff.
+
+	* Ignore blank lines option
+
+	* Misc CVS and SVN fixes.
+
+	* Compatibility restored for python2.2
+
+	* Up/Down buttons now work in directory/cvs/svn view.
+
+
+2004-04-26 meld-0.9.3
+=====================
+
+	* Added line numbers and syntax highlighting. (Requires pygtksourceview)
+
+	* Subversion support. (Patch from Adam Muegge).
+
+	* New status bar shows permissions and dates in dirdiff, shows
+	  line/column in filediff.
+
+	* Better focus behaviour when switching betweeen tabs.
+
+	* Works with pygtk-2.3.92
+
+2004-02-23 meld-0.9.2.1
+=======================
+
+	* Bugfix release to fix broken install
+
+	* Fix float->int conversion warning for python2.3
+
+2004-02-11 meld-0.9.2
+=====================
+
+	* Many translations added and updated. Thanks to the gnome translation
+	  team. Benoît Dejean (French), Danilo Šegan (Serbian), Duarte Loreto
+	  (Portuguese), Miloslav Trmac (Czech), Daniel van Eeden, Kees van den
+	  Broek (Dutch), Dongsu Jang (Korean)
+
+	* Differences within a line are now highlighted.
+
+	* Meld can now launch an external editor.
+
+	* CVS console state is remembered.
+
+	* Text search now works for multibyte character sets.
+
+	* Now using bugzilla.gnome.org for bug tracking
+
+	* Added keyboard navigation for directory diffs.
+
+	* Work around some pango/gtk font rendering issues where monospaced fonts
+	  are not monospaced vertically. (Most noticibly non breaking spaces)
+
+2003-11-22 meld-0.9.1
+=====================
+
+	* i18n support working, french translation added. Thanks to Benoit Dejean.
+
+	* CVS 'all files appear modified' when LANG is set fixed.
+
+	* Fix race condition which could lead to empty CVS patches.
+
+	* Timestamp differences now ignored for directory diff.
+
+	* Fix 'both horizontal' toolbar style. (GNOME changed the spelling)
+
+	* CVS refresh now actually refreshes.
+
+	* Filename filters used to treat *.x as *.x*. Fixed.
+
+	* 'Filter New' button now works.
+
+	* Universal newline support added (python2.3 only)
+
+	* Text now saved with the same codec as it was loaded with.
+
+	* App quit handling has changed to be more friendly.
+
+	* Install and uninstall targets added to makefile.
+
+	* CVS console scroll behaviour is better.
+
+2003-10-12 meld-0.9.0
+=====================
+
+	* Completely reworked preferences.
+
+	* Editor for file name filters
+
+	* Editor for regular expression filters
+
+	* New CVS options.
+
+	* Added CVS console.
+
+	* CVS view now uses .cvsignore and has a better Entries parser.
+
+	* Allow long running operations to be interrupted.
+
+2003-08-31 meld-0.8.5
+=====================
+
+	* Fix warnings for python2.3
+
+	* Add user definable dirdiff filters. (see manual)
+
+	* CVS Context menu for common ops.
+
+	* CVS Partial tree refreshing.
+
+	* Better parsing of CVS/Entries
+	
+	* CVS updates status when files are edited.
+
+	* Dirdiff now has case insensitive option.
+
+	* CVS warns if the patch is empty.
+
+	* Fix CVS modification times when UTC != localtime. 
+	  Thanks to and Martin Pool (report+patch) and Mike Grant (report)
+
+	* Initial i18n support.
+
+	* Dirdiff speedup by using filecmp instead of homegrown function.
+	  Thanks to Benoit Dejean.
+
+2003-07-28 meld-0.8.4
+=====================
+
+	* add missing pixmap from 0.8.3 release
+
+	* add search function
+
+2003-07-24 meld-0.8.3
+=====================
+
+	* Add margin clicking to directory view.
+
+	* Consider files ending in '~' to be backups. RFE From Beniot Dejean.
+
+	* Added margin diffmap guides
+
+	* Add emblem for newest file in directory view
+
+	* Add copy,cut,paste.
+
+	* Modified files are checked to save by default.
+
+	* Added context menu to save/save as from filediff
+
+	* Add parent to dialogs. Improves window manager interaction.
+
+	* Poup new.. now behaves like normal popups. 
+
+2003-06-21 meld-0.8.2
+=====================
+
+	* Added filters for directory view.
+
+	* Added toolbar for directory view.
+
+	* Added icons to notebook tabs.
+
+	* Added coloured folder icons.
+
+	* Fix bugs 746983 and 753815 recursive copy and delete.
+
+	* Escape tree labels to avoid problems with filenames containing '&'
+
+2003-05-19 meld-0.8.1
+=====================
+
+	* The interface has been made much more responsive using a new task
+	  scheduler based on Python generators and idle callbacks.
+
+	* Directory diff searches for all differences recursively for you.
+
+	* Incremental filediff loader lets you see files as they load.
+
+	* Filediff loader lets you choose the order of codecs tried.
+
+	* Diffs now update as you type instead of after a small delay.
+
+	* CVS browser now usable when the application current directory is not
+	  inside the CVS tree.
+
+	* meld 'file' now shows cvs diff without having to open a cvs browser
+
+	* better focus behaviour for filediff.
+
+	* Right click on a tab now brings up a tab menu.
+
+	* Some Gnome HIG dialog alterations.
+
+2003-03-24 meld-0.8.0
+=====================
+
+	* Never released.
+
+2003-03-24 meld-0.7.9
+=====================
+
+	* Diff update is now incremental; That is updates happen on each 
+	  keypress instead of after a short timeout. This makes meld usable
+	  on large files with many differences.
+
+	* Much better loading interaction. The text is immediately visible
+	  and scrollable - the diffs are computed in an idle callback.
+
+	* CVS browser should now be considered beta not alpha. It works 
+	  with any location without needing to run 'meld .'
+
+	* Right click on the tabs now pops up a tab menu.
+
+
+2003-03-24 meld-0.7.1
+=====================
+
+	* Added more colourful filediff.
+
+	* Click in margin scrolls to that point.  (suggestion from Alexander Dreweke)
+
+	* Allow CVS diff for a single file from the command line.
+
+	* Do not refresh filelist when launching diff.
+
+	* Add a fallback font if 'monospace' is not available. (patch from Ross Burton)
+
+	* Better handling of keyboard focus
+
+	* Added version checking to main script.
+
+	* Added --profile option.
+
+2003-03-24 meld-0.7.0
+=====================
+
+	* cvsview: Added status, tag, rev, options and location fields.
+
+	* cvsview: Hide location when not in recurse mode.
+
+	* cvsview: Commit messages now work when containing shell metacharaters.
+
+	* filediff: Load files lazily for quicker feedback
+
+	* dirdiff: Added copy/delete/diff context menu.
+
+	* dirdiff: Reworked how dirdiff is presented.
+
+2003-02-14 meld-0.6.6.1
+=======================
+
+	* This fixes the bug where meld would fail to start if the toolbar
+	  preferences were set to icons only.
+
+2003-02-12 meld-0.6.6
+=====================
+
+	* Many updates to preferences.
+
+	* You can now change font and tab size.  Or use the default GNOME monospace font.
+
+	* Toolbar style is now changeable or can follow GNOME default.
+
+2003-01-28 meld-0.6.4
+=====================
+
+	* Fix bug where deep directories were not correctly handled
+
+	* Dont refresh cvs view every time we open a diff.
+
+	* Filebrowser focus now switches to next entry when an entry is activated.
+
+	* Allow unnamed buffers ("cut and paste" diffs)
+
+2002-12-14 meld-0.6.3
+=====================
+
+	* Meld can now edit non utf8 files by explicitly specifying the encoding.
+
+	* CVS browser now cleans up temporary files correctly.
+
+	* CVS browser shows currently executing actions.
+
+	* CVS browser commit dialog added.
+
+	* Added preferences dialog.
+
+2002-11-26 meld-0.6.2
+=====================
+
+	* Add missing pixmaps for directory diff.
+
+	* Set about dialog properties correctly.  
+
+	* Fail if new style pygtk not present. (pygtk.require())
+
+	* Remove #! from non executable files. 
+
+	* Set copyright correctly.
+
+2002-11-12 meld-0.6.1
+=====================
+
+	* Added colouring for modified/missing files in dirdiff.
+
+	* Added icons for dirdiff.
+
+	* Added new simple draw style.
+
+2002-11-04 meld-0.6.0
+=====================
+
+	* Ask to save modified files on exit.
+
+	* Added settings menu for linkmap drawing style.
+
+	* Added alpha directory differ.
+
+	* Directory and file comparison can dynamically switch from 1,2,3 panes.
+
+	* Toolbar made smaller.
+
+2002-10-01 meld-0.5.4
+=====================
+
+	* Make cvsview work when not called from the command line.
+
+	* Fix bug where deletes were not highlighted.  Fix
+	  bug where inserts were not clickable.
+
+2002-09-27 meld-0.5.3
+=====================
+
+	* Now works with both latest and older pygtk (Ross Burton).
+
+	* HIG patches (Ross Burton).
+
+	* Smarten up notebook labels.
+
+	* Fix bug where deletes were not highlighted.
+
+	* Fix bug where inserts were not clickable.
+
+2002-08-18 meld-0.5.2
+=====================
+
+	* diff3 now fully functional (merging buttons etc)
+	 
+	* new cvs icons. Thanks to Jakub "Jimmac" Steiner for
+	  the icons and to Ross Burton for the suggestion.
+
+2002-08-04 meld-0.5.1
+=====================
+
+	* Allow for different font sizes.
+
+2002-08-04 meld-0.5
+===================
+
+	* No notes.
+
+2002-07-19 meld-0.4
+===================
+
+	* Remove test files from release
+
+2002-07-19 meld-0.4
+===================
+
+	* Edit files in place. Diffs update dynamically.
+
+	* Middle column shows detailed changes, and allows merges
+
+	* User friendly diff browsing
+
+	* Margins show location of changes
+
+	* Tabbed interface - open many diffs at once
+
+	* Next/prev diff 
+
+	* Unlimited undo
+
+	* Preliminary CVS integration. (meld.py -C)
+
+	* Preliminary diff3 support.
+
+2002-06-14 meld-0.3
+===================
+
+	* remove some debugging code
+
+2002-06-12 meld-0.2
+===================
+
+	* Added file/save plus accelerators.
+
+	* Allow app to be run from different directory.
+	
+	* Add groups to undo.  Undo/redo works properly for merging.
+
+	* Added undo/redo for single doc.  Added timeouts for updating diff delay.
+
+	* Added merge buttons.  Added next/prev diff scrolling (mousewheel)
+
+	* Added changed text highlight
+
+	* Move common functionality into a base class
+
+	* Improve performance for diff map of large files.
+
+	* Diffcomponent now has 'files-changed' signal.  Move main
+	  to own function to avoid creating globals inadvertently.
+
+	* Add new filediff2 dialog.  Added refresh button.
+
+2002-05-18 meld-0.1
+===================
+
+	* Developers test release 1

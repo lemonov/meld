@@ -1,0 +1,138 @@
+#! /usr/bin/env python
+
+### Copyright (C) 2002-2006 Stephen Kennedy <stevek@gnome.org>
+
+### This program is free software; you can redistribute it and/or modify
+### it under the terms of the GNU General Public License as published by
+### the Free Software Foundation; either version 2 of the License, or
+### (at your option) any later version.
+
+### This program is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+### GNU General Public License for more details.
+
+### You should have received a copy of the GNU General Public License
+### along with this program; if not, write to the Free Software
+### Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+import locale
+import os
+import sys
+
+# Disable buffering of stdout
+class Unbuffered(object):
+    def __init__(self, file):
+        self.file = file
+    def write(self, arg):
+        self.file.write(arg)
+        self.file.flush()
+    def __getattr__(self, attr):
+        return getattr(self.file, attr)
+sys.stdout = Unbuffered(sys.stdout)
+
+# Use pychecker if requested
+if "--pychecker" in sys.argv:
+    sys.argv.remove("--pychecker")
+    os.environ['PYCHECKER'] = "--no-argsused --no-classattr --stdlib"
+        #'--blacklist=gettext,locale,pygtk,gtk,gtk.keysyms,popen2,random,difflib,filecmp,tempfile'
+    import pychecker.checker
+
+# Ignore session management
+for ignore in "--sm-config-prefix", "--sm-client-id":
+    try:
+        smprefix = sys.argv.index(ignore)
+        del sys.argv[smprefix:smprefix + 2]
+    except (ValueError, IndexError):
+        pass
+
+# Extract the profiling flag
+try:
+    sys.argv.remove("--profile")
+    profiling = True
+except ValueError:
+    profiling = False
+
+# Support running from an uninstalled version
+melddir = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), ".."))
+if os.path.exists(os.path.join(melddir, "meld.doap")):
+    sys.path[0:0] = [melddir]
+else:
+    sys.path[0:0] = [ #LIBDIR#
+    ]
+
+# i18n support
+import meld.paths
+import gettext
+_ = gettext.gettext
+
+# Locale setting in gtk.Builder appears somewhat broken under Python. See:
+#   https://bugzilla.gnome.org/show_bug.cgi?id=574520
+locale_domain = "meld"
+locale_dir = meld.paths.locale_dir()
+
+gettext.bindtextdomain(locale_domain, locale_dir)
+locale.setlocale(locale.LC_ALL,'')
+gettext.textdomain(locale_domain)
+gettext.install(locale_domain, localedir=locale_dir, unicode=True)
+
+try:
+    locale.bindtextdomain(locale_domain, locale_dir)
+    locale.bind_textdomain_codeset(locale_domain, 'UTF-8')
+except AttributeError:
+    # OS X doesn't appear to have bindtextdomain(). This will cause
+    # gtk.Builder translations to fail.
+    print "Couldn't bind the translation domain. Some translations won't work."
+except locale.Error:
+    print "Couldn't bind the translation domain. Some translations won't work."
+
+
+# Check requirements: Python 2.5, pygtk 2.14
+pyver = (2, 5)
+pygtkver = (2, 14, 0)
+pygobjectver = (2, 16, 0)
+
+def missing_reqs(mod, ver, exception=None):
+    if isinstance(exception, ImportError):
+        print _("Cannot import: ") + mod + "\n" + str(e)
+    else:
+        modver = mod + " " + ".".join(map(str, ver))
+        print _("Meld requires %s or higher.") % modver
+    sys.exit(1)
+
+if sys.version_info[:2] < pyver:
+    missing_reqs("Python", pyver)
+
+# gtk+ and related imports
+try:
+    import pygtk
+    pygtk.require("2.0")
+except (ImportError, AssertionError), e:
+    missing_reqs("pygtk", pygtkver, e)
+
+try:
+    import gtk
+    assert gtk.pygtk_version >= pygtkver
+except (ImportError, AssertionError), e:
+    missing_reqs("pygtk", pygtkver, e)
+
+try:
+    import gobject
+    assert gobject.pygobject_version >= pygobjectver
+except (ImportError, AssertionError), e:
+    missing_reqs("pygobject", pygobjectver, e)
+
+
+gtk.icon_theme_get_default().append_search_path(meld.paths.icon_dir())
+
+def main():
+    from meld.meldapp import app
+    app.create_window()
+    app.parse_args(sys.argv[1:])
+    gtk.main()
+
+if profiling:
+    import profile
+    profile.run("main()")
+else:
+    main()

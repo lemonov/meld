@@ -1,0 +1,85 @@
+<ui>
+  <menubar name="Menubar">
+    <menu action="FileMenu">
+      <menuitem action="New" />
+      <menuitem action="Save" />
+      <menuitem action="SaveAs" />
+      <separator/>
+      <placeholder name="FileActionsPlaceholder" />
+      <separator/>
+      <menuitem action="Close" />
+      <menuitem action="Quit" />
+    </menu>
+    <menu action="EditMenu">
+      <menuitem action="Undo"/>
+      <menuitem action="Redo"/>
+      <separator/>
+      <menuitem action="Cut"/>
+      <menuitem action="Copy"/>
+      <menuitem action="Paste"/>
+      <separator/>
+      <placeholder name="EditActionsPlaceholder" />
+      <separator/>
+      <menuitem action="Find"/>
+      <menuitem action="FindNext"/>
+      <menuitem action="FindPrevious"/>
+      <menuitem action="Replace"/>
+      <separator/>
+      <menuitem name="Preferences" action="Preferences"/>
+    </menu>
+    <menu action="ChangesMenu">
+      <menuitem action="PrevChange"/>
+      <menuitem action="NextChange"/>
+      <separator/>
+      <placeholder name="ChangesActions" />
+    </menu>
+    <menu action="ViewMenu">
+      <menuitem action="ToolbarVisible" />
+      <menuitem action="StatusbarVisible" />
+      <menuitem action="Fullscreen" />
+      <separator/>
+      <placeholder name="ViewUtilityPlaceholder" />
+      <separator/>
+      <placeholder name="ViewPlaceholder" />
+      <menu action="FileStatus" />
+      <menu action="VcStatus" />
+      <menu action="FileFilters" />
+      <separator/>
+      <placeholder name="ViewDocSpecificPlaceholder" />
+      <separator/>
+      <menuitem action="Stop" />
+      <menuitem action="Refresh" />
+      <menuitem action="Reload" />
+    </menu>
+    <menu action="TabMenu">
+      <menuitem action="PrevTab" />
+      <menuitem action="NextTab" />
+      <separator/>
+      <menuitem action="MoveTabPrev" />
+      <menuitem action="MoveTabNext" />
+      <separator/>
+      <placeholder name="TabPlaceholder" />
+    </menu>
+    <menu action="HelpMenu">
+      <menuitem action="Help" />
+      <menuitem action="BugReport" />
+      <menuitem action="About" />
+    </menu>
+  </menubar>
+
+  <toolbar action="Toolbar">
+    <toolitem action="New"/>
+    <placeholder name="GeneralActions" />
+    <toolitem action="PrevChange"/>
+    <toolitem action="NextChange"/>
+    <toolitem action="Stop"/>
+    <separator/>
+    <placeholder name="SpecialActions" />
+    <separator/>
+    <placeholder name="FilterActions" />
+  </toolbar>
+
+  <popup name="Popup">
+  </popup>
+</ui>
+
